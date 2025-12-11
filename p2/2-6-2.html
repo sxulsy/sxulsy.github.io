@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>雨还在下</title>
+<style type="text/css">
+body,td,th {
+    font-family: "宋体";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+}
+body {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+</style>
+<script src="Scripts/swfobject_modified.js"></script>
+</head>
+<body>
+<h1 align="center" >雨还在下 </h1>
+<p style="text-align: center" ><img src="yu.jpg" alt="雨中等待的女孩" width="300" height="250" title="雨中等待的女孩"/></p>
+<p >雨还在下，伴着轻抚脸颊的微风。雨中的人们已穿上淡淡的衣装。 </p>
+<p >没有了春雨的兴奋，没有了夏雨的凉爽，这个时节的雨却有点让人哀愁和忧伤。 </p>
+<p >徘徊在大街上，在匆匆的人流中，驻足远望。孤独？落寞？还是佳人远在异乡？ </p>
+<p >一片叶飘在身上，心生怜悯，把它捧在手上。好温馨的树叶，你轻轻的来到我的身旁，我把你久久地凝望！这多情的秋日，多情的秋雨，多情的哀伤！ </p>
+<p >雨滴荡起涟漪，心中激起层层碧浪。让风把我的爱带到佳人的身旁，让雨把我的思送到佳人的梦乡。天凉好个秋，别忘了加衣裳。 </p>
+<p>雨还在下，风还在吹。合着思念，合着清凉，合着忧伤把秋歌奏响。 </p>
+<div id="flash-container" style="width: 550px; height: 300px; margin: 0 auto;"></div>
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.addEventListener("DOMContentLoaded", () => {
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+		   player.style.display = "block";
+    player.style.margin = "0 auto";
+        document.getElementById("flash-container").appendChild(player);
+        player.load("yu.swf"); 
+    });
+</script>
+</body>
+</html>
