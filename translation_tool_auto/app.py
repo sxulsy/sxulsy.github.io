@@ -23,7 +23,11 @@ st.set_page_config(
 @st.cache_resource
 def load_terms_data():
     """加载术语数据并缓存"""
-    conn = sqlite3.connect('terms.db')
+    
+    CURRENT_FILE_PATH = os.path.abspath(__file__)
+    PROJECT_ROOT = os.path.dirname(CURRENT_FILE_PATH)
+    DB_PATH = os.path.join(PROJECT_ROOT, "terms.db")
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute("SELECT word, definition FROM terms")
     rows = cursor.fetchall()
