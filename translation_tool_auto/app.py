@@ -23,7 +23,10 @@ st.set_page_config(
 @st.cache_resource
 def load_terms_data():
     """加载术语数据并缓存"""
-    
+    print("=== DB DEBUG START ===")
+    print("DB_PATH =", DB_PATH)
+    print("Exists:", os.path.exists(DB_PATH))
+    print("Size:", os.path.getsize(DB_PATH))
     CURRENT_FILE_PATH = os.path.abspath(__file__)
     PROJECT_ROOT = os.path.dirname(CURRENT_FILE_PATH)
     DB_PATH = os.path.join(PROJECT_ROOT, "terms.db")
