@@ -8,6 +8,9 @@ import sqlite3
 import numpy as np
 import re
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, "terms.db")
+
 # 加载环境变量
 load_dotenv()
 
@@ -19,37 +22,19 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, "terms.db")
-
 # 定义全局的术语数据和向量器
 @st.cache_resource
 def load_terms_data():
     """加载术语数据并缓存"""
-
-    print("=== DB DEBUG START ===")
-    print("DB_PATH =", DB_PATH)
-    print("Exists:", os.path.exists(DB_PATH))
-    print("Size:", os.path.getsize(DB_PATH))
-
-      # 以只读方式打开数据库，确保路径错误时不自动创建空库
     conn = sqlite3.connect(f"file:{DB_PATH}?mode=ro", uri=True)
     cursor = conn.cursor()
-
-    # 检查表是否存在（防止空数据库）
-    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-    tables = [t[0] for t in cursor.fetchall()]
-    if "terms" not in tables:
-        raise RuntimeError(f"'terms' table not found in database at {DB_PATH}")
-
-    # 执行查询
     cursor.execute("SELECT word, definition FROM terms")
     rows = cursor.fetchall()
     conn.close()
-
-    # 拆分成两个列表返回
-    terms = [r[0] for r in rows]
-    definitions = [r[1] for r in rows]
+    
+    terms = [word for word, _ in rows]
+    definitions = {word: defi for word, defi in rows}
+    
     return terms, definitions
 
 @st.cache_resource
