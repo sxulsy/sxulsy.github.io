@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系表单管理</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 管理页面样式 */
+        .admin-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .admin-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .login-section {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .submissions-section {
+            display: none;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        .submissions-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .submission-item {
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .submission-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .submission-info {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .submission-name {
+            font-weight: 600;
+            color: #3867d6;
+        }
+        
+        .submission-email {
+            color: #6c757d;
+        }
+        
+        .submission-date {
+            font-size: 0.85rem;
+            color: #999;
+        }
+        
+        .submission-subject {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .submission-message {
+            white-space: pre-wrap;
+            line-height: 1.6;
+            color: #495057;
+        }
+        
+        .submission-actions {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+        
+        .no-submissions {
+            text-align: center;
+            color: #6c757d;
+            padding: 50px;
+        }
+        
+        .logout-btn {
+            margin-top: 20px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- 登录部分 -->
+        <section class="login-section" id="loginSection">
+            <h2>联系表单管理</h2>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="password">管理员密码</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">登录</button>
+            </form>
+        </section>
+        
+        <!-- 提交记录部分 -->
+        <section class="submissions-section" id="submissionsSection">
+            <div class="admin-header">
+                <h2>联系表单提交记录</h2>
+                <div class="logout-btn">
+                    <button class="btn btn-secondary" id="logoutBtn">退出登录</button>
+                </div>
+            </div>
+            <div id="submissionsList"></div>
+        </section>
+    </div>
+
+    <script>
+        // 简单的密码保护
+        const ADMIN_PASSWORD = 'admin123'; // 可以自行修改密码
+        
+        // 登录功能
+        const loginForm = document.getElementById('loginForm');
+        const loginSection = document.getElementById('loginSection');
+        const submissionsSection = document.getElementById('submissionsSection');
+        
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+            if (password === ADMIN_PASSWORD) {
+                loginSection.style.display = 'none';
+                submissionsSection.style.display = 'block';
+                showSubmissions();
+            } else {
+                alert('密码错误，请重试！');
+                this.reset();
+            }
+        });
+        
+        // 退出登录
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            submissionsSection.style.display = 'none';
+            loginSection.style.display = 'block';
+            loginForm.reset();
+        });
+        
+        // 显示所有提交记录
+        function showSubmissions() {
+            const submissions = JSON.parse(localStorage.getItem('contactSubmissions')) || [];
+            const submissionsList = document.getElementById('submissionsList');
+            
+            if (submissions.length === 0) {
+                submissionsList.innerHTML = '<div class="no-submissions">暂无提交记录</div>';
+                return;
+            }
+            
+            // 按时间倒序排序
+            submissions.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            
+            submissionsList.innerHTML = submissions.map((submission, index) => `
+                <div class="submission-item">
+                    <div class="submission-header">
+                        <div class="submission-info">
+                            <span class="submission-name">${submission.name}</span>
+                            <span class="submission-email">${submission.email}</span>
+                        </div>
+                        <span class="submission-date">${new Date(submission.timestamp).toLocaleString()}</span>
+                    </div>
+                    <div class="submission-subject">${submission.subject}</div>
+                    <div class="submission-message">${submission.message}</div>
+                    <div class="submission-actions">
+                        <button class="btn btn-danger" onclick="deleteSubmission(${index})">删除</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // 删除提交记录
+        function deleteSubmission(index) {
+            if (confirm('确定要删除这条记录吗？')) {
+                let submissions = JSON.parse(localStorage.getItem('contactSubmissions')) || [];
+                submissions.splice(index, 1);
+                localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+                showSubmissions();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系方式 - 个人网站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+     <!-- 导航栏 -->
+    <nav class="navbar">
+         <div class="container">
+            <div class="navbar-brand">
+                <a href="index.html">刘晟宇的个人网站</a>
+            </div>
+            <div class="navbar-menu">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle">大语言模型</a>
+                        <ul class="dropdown-menu">
+							<li><a href="llm-introduction.html">文章介绍</a></li>
+                            <li><a href="https://sxulsyappio-hzkd9fsq69kgm3sih4qtfz.streamlit.app/">应用案例</a></li>
+                            <li><a href="llm-literature.html">文献荐读</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="quiz.html">职业测评</a></li>
+                    <li><a href="resources.html">资源分享</a></li>
+                    <li><a href="contact.html">联系方式</a></li>
+                </ul>
+            </div>
+            <div class="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="page-header2 header-contact">
+        <div class="header-content">
+            <h1>联系方式</h1>
+            <p>有任何问题或想交流经验？随时联系我，期待和您沟通！</p>
+        </div>
+    </header>
+
+    <!-- 联系方式内容 -->
+    <main class="main-content">
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- 联系信息 -->
+                    <div class="contact-info">
+                        <h2>联系信息</h2>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <h3>邮箱</h3>
+								<a href="mailto:liushengyu@sxu.edu.cn">liushengyu@sxu.edu.cn</a>
+                            </div>
+							<br>
+                            <div class="contact-item">
+                                <h3>电话</h3>
+                                <p>137 8060 7227</p>
+                            </div>
+							<br>
+                            <div class="contact-item">
+                                <h3>地址</h3>
+                                <p>山西省太原市小店区南中环东街63号</p>
+							<br>
+                            </div>
+                            <div class="contact-item">
+                                <h3>社交媒体</h3>
+                                <div class="social-links">
+                                    <a href="https://github.com/sxulsy" class="social-link">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 联系表单 -->
+                    <div class="contact-form">
+                        <h2>向我发送消息，与你取得联系。</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">姓名</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">邮箱</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">主题</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">消息</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">发送</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+   <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>版权所有&copy;山西大学 刘晟宇 &nbsp; | &nbsp; 地址：山西省太原市小店区南中环东街63号 山西大学东山校区  &nbsp; | &nbsp; 反馈意见：liushengyu7227@126.com</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

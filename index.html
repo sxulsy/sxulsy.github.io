@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人网站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+     <!-- 导航栏 -->
+    <nav class="navbar">
+         <div class="container">
+            <div class="navbar-brand">
+                <a href="index.html">刘晟宇的个人网站</a>
+            </div>
+            <div class="navbar-menu">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle">大语言模型</a>
+                        <ul class="dropdown-menu">
+							<li><a href="llm-introduction.html">文章介绍</a></li>
+                            <li><a href="https://sxulsyappio-hzkd9fsq69kgm3sih4qtfz.streamlit.app/">应用案例</a></li>
+                            <li><a href="llm-literature.html">文献荐读</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="quiz.html">职业测评</a></li>
+                    <li><a href="resources.html">资源分享</a></li>
+                    <li><a href="contact.html">联系方式</a></li>
+                </ul>
+            </div>
+            <div class="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <!-- 顶部全屏滚动图片 -->
+    <header class="hero-section">
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: url('index-2.png');"></div>
+            <div class="hero-slide" style="background-image: url('index-1.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('index-3.jpg');"></div>
+			<div class="hero-slide" style="background-image: url('index-4.jpg');"></div>
+			<div class="hero-slide" style="background-image: url('index-5.jpg');"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>欢迎来到刘晟宇的个人网站</h1>
+            <p>探讨知识，交流分享！</p>
+        </div>
+    </header>
+    <div class="hero-spacer"></div>
+	
+	 <!-- 页面标题 -->
+    <header class="page-header header-profile">
+        <div class="header-content">
+            <h1>个人简介</h1>
+            <p>了解我的基本信息、教育背景、专业技能和项目经验。</p>
+        </div>
+    </header>
+	
+    <!-- 个人简介内容 -->
+    <main class="main-content">
+        <section class="about-section">
+            <div class="container">
+                <div class="about-grid">
+                    <!-- 左侧个人信息 -->
+                    <div class="about-sidebar">
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="bai.jpg" alt="个人头像">
+                            </div>
+                            <div class="profile-info">
+                                <h2>刘晟宇</h2>
+								<p><strong>山西大学经济与管理学院 本科生</strong></p>
+                                <p>GPA：3.90/4.50 </p>
+								<p>CET-4（554） CET-6（569）</p>
+                            </div>
+                            <div class="profile-contact">
+                                <h3>研究方向</h3>
+                                <ul>
+                                    <li>数字人文 (Digital Humanities)</li>
+                                    <li>自然语言处理 (NLP)</li>
+                                    <li>大语言模型 (LLM)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+					
+                    <!-- 右侧详细信息 -->
+                    <div class="about-content">
+                        <!-- 教育背景 -->
+                        <div class="about-section-item">
+                            <h2>教育背景</h2>
+                            <div class="timeline">
+                                <div class="timeline-item">
+									 <img src="山西大学.png" alt="山西大学校徽" class="school-logo">
+                                    <div class="timeline-date">2023 - 至今</div>
+                                    <div class="timeline-content">
+                                        <h3>山西大学</h3>
+                                        <p>信息管理与信息系统专业（国家级一流专业建设点）| 管理学学士</p>
+                                        <p>主修课程：数学分析、概率论与数理统计、数据结构与算法、信息资源管理</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+									 <img src="青岛一中.jpg" alt="山西大学校徽" class="school-logo">
+                                    <div class="timeline-date">2020 - 2023</div>
+                                    <div class="timeline-content">
+                                        <h3>山东省青岛第一中学</h3>
+                                        <p>自招英才班 | 高中</p>
+										<p>连续三年担任班长职务，多次被评选为校三好学生和优秀团员</p>
+                                    </div>
+                                </div>
+							   <div class="timeline-item">
+								    <img src="青岛七中.jpg" alt="山西大学校徽" class="school-logo">
+                                    <div class="timeline-date">2017 - 2020</div>
+                                    <div class="timeline-content">
+                                        <h3>山东省青岛第七中学</h3>
+                                        <p>2017级2班 | 化学课代表 | 初中</p>
+                                    </div>
+                                </div>
+							<div class="timeline-item">
+								 <img src="莱芜一路.jpg" alt="山西大学校徽" class="school-logo">
+                                    <div class="timeline-date">2011 - 2017</div>
+                                    <div class="timeline-content">
+                                        <h3>青岛莱芜一路小学</h3>
+                                        <p>2011级2班 | 信息课代表 | 小学</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						
+                       <!-- 科研技能 -->
+						<div class="about-section-item">
+							<h2>科研技能</h2>
+
+							<div class="research-skills">
+								<div class="research-skill">
+									<span class="skill-title">熟练运用各类办公软件</span>
+									<span class="skill-desc">计算机二级 MS Office 良好等级</span>
+								</div>
+								
+								<div class="research-skill">
+									<span class="skill-title">较强的文献管理能力</span>
+									<span class="skill-desc">熟练使用 Zotero 进行文献整理与引用</span>
+								</div>
+
+								<div class="research-skill">
+									<span class="skill-title">编写程序的扎实功底</span>
+									<span class="skill-desc">掌握 C++、Python、Java 等编程语言</span>
+								</div>
+
+								<div class="research-skill">
+									<span class="skill-title">较强的文献检索能力</span>
+									<span class="skill-desc">掌握中英文数据库与学术论文检索方法</span>
+								</div>
+							</div>
+						</div>
+						
+                        <!-- 项目经验 -->
+                        <div class="about-section-item">
+                            <h2>学科竞赛</h2>
+                            <div class="projects-grid">
+                                <div class="project-card">
+                                    <h3>全国人工智能应用创新大赛</h3>
+                                    <p class="project-date">2025.03 – 2025.10 &nbsp; &nbsp; &nbsp; <strong>国家级一等奖</strong></p>
+                                    <p><strong>《智能体驱动下的山西非遗数字化创新传播与商业化探索》设计 AI Agent “晋小韵”。</strong></p>
+                                    <ul>
+                                        <li>⭐ 构建智能体的提示词体系和交互逻辑</li>
+                                        <li>⭐ 基于大语言模型实现个性化对话和多轮语义理解，完成智能体的形象设定、知识调用和任务流编排</li>
+                                        <li>⭐ 最终全国总决赛进行线上路演</li>
+                                    </ul>
+                                </div>
+                                <div class="project-card">
+                                    <h3>学创杯全国大学生创业综合模拟大赛</h3>
+                                    <p class="project-date">2025.03 – 2025.10 &nbsp; &nbsp; &nbsp;<strong>国家级一等奖</strong></p>
+                                    <p><strong>在 ERP 模拟企业运营中，使用《理财之道》平台进行企业财务决策模拟。</strong></p>
+                                    <ul>
+                                        <li>⭐ 综合运用财务工具模型和经营分析方法</li>
+                                        <li>⭐ 完成资金配置、投资决策、市场竞争、风险控制等操作</li>
+                                        <li>⭐ 推进企业经营绩效的模拟优化</li>
+                                    </ul>
+                                </div>
+                                <div class="project-card">
+                                    <h3>全国大学生市场调查与分析大赛</h3>
+                                    <p class="project-date">2024.10 – 2025.04 &nbsp; &nbsp; &nbsp;<strong>省级一等奖</strong></p>
+                                    <p><strong>《智联纽带牵供需，高校求职无忧愁——智联招聘助力高校学生求职准备与应对策略调查》</strong></p>
+                                    <ul>
+                                        <li>⭐ 基于描述性统计，分析用户功能使用偏好、需求满意度及改进建议</li>
+                                        <li>⭐ 采用 K-means 聚类模型细分潜在用户群体，探究其动机和发展路径</li>
+                                        <li>⭐ 运用 SnowNLP 分析用户评论情感倾向，提出针对性优化策略，提升平台用户体验与影响力</li>
+                                    </ul>
+                                </div>
+								<div class="project-card">
+                                    <h3>全国大学生数字贸易综合能力大赛</h3>
+                                    <p class="project-date">2025.01 – 2025.10 &nbsp; &nbsp; &nbsp;<strong>国家级二等奖</strong></p>
+                                    <p>⭐ 依托义乌商贸大模型和算力，将 AI 工具深度应用于优化选品、多语种营销、智能客服等全链路环节，实现 AI 技术赋能传统商贸。</p>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 获奖情况 -->
+                        <div class="about-section-item">
+                            <h2>荣誉奖项</h2>
+                            <ul class="awards-list">
+                                <li>山西大学 2024-2025 学年一等学业奖学金</li>
+                                <li>山西大学 2024-2025 学年三好学生</li>
+                                <li>山西大学 2023-2024 学年二等学业奖学金</li>
+                                <li>山西大学 2023-2024 学年优秀学生干部</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>版权所有&copy;山西大学 刘晟宇 &nbsp; | &nbsp; 地址：山西省太原市小店区南中环东街63号 山西大学东山校区  &nbsp; | &nbsp; 反馈意见：liushengyu7227@126.com</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
